@@ -156,6 +156,9 @@
     left: 0;
     width: 100%;
   }
+  .search-container{
+    display: none;
+  }
 }
 
 .projects-customers-container {
