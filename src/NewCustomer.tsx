@@ -1,4 +1,3 @@
-import React from "react";
 import { FaUser, FaCommentDots, FaPhone } from "react-icons/fa";
 import "./NewCustomer.css"; 
 import { Avatar, Button, Card, CardContent, Typography } from "@mui/material";

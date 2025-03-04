@@ -5,7 +5,7 @@ import "./StatsCards.css";
 interface StatItem {
   value: string;
   label: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;  
   special?: boolean; 
 }
 

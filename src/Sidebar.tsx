@@ -35,8 +35,18 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
 
   return (
     <div className={`sidebar ${isOpen ? "sidebar-open" : "sidebar-closed"}`}>
-      {/* Close Button (Visible only in Mobile View) */}
-      <IconButton className="close-btn" onClick={toggleSidebar}>
+      {/* Close Button (Only Visible in Mobile View) */}
+      <IconButton
+        className="close-btn"
+        onClick={toggleSidebar}
+        style={{
+          display: window.innerWidth <= 768 ? "block" : "none", // Hide on large screens
+          position: "absolute",
+          top: "10px",
+          right: "10px",
+          zIndex: 1000,
+        }}
+      >
         <CloseIcon />
       </IconButton>
 
@@ -46,7 +56,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         {menuItems.map(({ name, icon }) => (
           <ListItem
             key={name}
-            button
+            component="div" // Fix: Replace `button` prop with `component="div"`
             className={activeItem === name ? "active" : ""}
             onClick={() => handleItemClick(name)}
           >

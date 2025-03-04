@@ -1,46 +1,50 @@
+/* App Layout */
 .app-container {
-    display: flex;
-    height: 100vh;
-  }
-  
-  .sidebar {
-    width: 350px;
-    height: 100vh;
-    background: linear-gradient(to bottom right, #ff416c, #ff4b2b);
-    color: white;
-    padding: 20px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    transition: all 0.3s ease-in-out;
-    z-index: 1000;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .sidebar li {
-    padding: 15px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .sidebar li:hover,
-  .sidebar li.active {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-  }
-  
-  .close-btn {
-    display: none;
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: white;
-  }
-  
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 350px;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #ff416c, #ff4b2b);
+  color: white;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sidebar li:hover,
+.sidebar li.active {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+/* Close Button (Hidden on Large Screens) */
+.close-btn {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+}
+
+/* Main Content (Adjusts Based on Sidebar) */
 .main-content {
   flex-grow: 1;
   margin-left: 350px; 
@@ -49,27 +53,31 @@
   transition: margin-left 0.3s ease-in-out;
 }
 
-.sidebar-closed .main-content {
+/* When Sidebar is Closed */
+.sidebar-closed {
+  left: -350px;
+}
+
+.sidebar-closed + .main-content {
   margin-left: 0;
 }
 
+/* Responsive Styles for Mobile */
 @media (max-width: 768px) {
   .sidebar {
-      width: 0;
-      left: -350px;
-      transition: left 0.3s ease-in-out;
-  }
-  .close-btn {
-    display: block; 
+    left: -350px;
   }
 
   .sidebar-open {
-      width: 350px;
-      left: 0;
+    left: 0;
+  }
+
+  .close-btn {
+    display: block; /* Visible only in Mobile */
   }
 
   .main-content {
-      margin-left: 0;
+    margin-left: 0;
   }
 }
 
