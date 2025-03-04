@@ -1,6 +1,12 @@
 import React, { useState } from "react";
-import { IconButton, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close"; // Cancel Icon
+import {
+  IconButton,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PeopleIcon from "@mui/icons-material/People";
 import WorkIcon from "@mui/icons-material/Work";
@@ -15,7 +21,6 @@ interface SidebarProps {
   toggleSidebar: () => void;
 }
 
-// Sidebar menu items
 const menuItems = [
   { name: "Dashboard", icon: <DashboardIcon /> },
   { name: "Customers", icon: <PeopleIcon /> },
@@ -35,12 +40,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
 
   return (
     <div className={`sidebar ${isOpen ? "sidebar-open" : "sidebar-closed"}`}>
-      {/* Close Button (Only Visible in Mobile View) */}
       <IconButton
         className="close-btn"
         onClick={toggleSidebar}
         style={{
-          display: window.innerWidth <= 768 ? "block" : "none", // Hide on large screens
+          display: window.innerWidth <= 768 ? "block" : "none",
           position: "absolute",
           top: "10px",
           right: "10px",
@@ -56,7 +60,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         {menuItems.map(({ name, icon }) => (
           <ListItem
             key={name}
-            component="div" // Fix: Replace `button` prop with `component="div"`
+            component="div"
             className={activeItem === name ? "active" : ""}
             onClick={() => handleItemClick(name)}
           >

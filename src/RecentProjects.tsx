@@ -1,17 +1,62 @@
 import React from "react";
 import { Button } from "@mui/material";
-import "./RecentProjects.css"; 
+import "./RecentProjects.css";
 
 const projects = [
-  { title: "UI/UX Design", department: "UI Team", status: "review", color: "purple" },
-  { title: "Web development", department: "Frontend", status: "in progress", color: "pink" },
-  { title: "Ushop app", department: "Mobile Team", status: "pending", color: "orange" },
-  { title: "UI/UX Design", department: "UI Team", status: "review", color: "purple" },
-  { title: "Web development", department: "Frontend", status: "in progress", color: "pink" },
-  { title: "Ushop app", department: "Mobile Team", status: "pending", color: "orange" },
-  { title: "UI/UX Design", department: "UI Team", status: "review", color: "purple" },
-  { title: "Web development", department: "Frontend", status: "in progress", color: "pink" },
-  { title: "Ushop app", department: "Mobile Team", status: "pending", color: "orange" },
+  {
+    title: "UI/UX Design",
+    department: "UI Team",
+    status: "review",
+    color: "purple",
+  },
+  {
+    title: "Web development",
+    department: "Frontend",
+    status: "in progress",
+    color: "pink",
+  },
+  {
+    title: "Ushop app",
+    department: "Mobile Team",
+    status: "pending",
+    color: "orange",
+  },
+  {
+    title: "UI/UX Design",
+    department: "UI Team",
+    status: "review",
+    color: "purple",
+  },
+  {
+    title: "Web development",
+    department: "Frontend",
+    status: "in progress",
+    color: "pink",
+  },
+  {
+    title: "Ushop app",
+    department: "Mobile Team",
+    status: "pending",
+    color: "orange",
+  },
+  {
+    title: "UI/UX Design",
+    department: "UI Team",
+    status: "review",
+    color: "purple",
+  },
+  {
+    title: "Web development",
+    department: "Frontend",
+    status: "in progress",
+    color: "pink",
+  },
+  {
+    title: "Ushop app",
+    department: "Mobile Team",
+    status: "pending",
+    color: "orange",
+  },
 ];
 
 const RecentProjects: React.FC = () => {
@@ -23,7 +68,7 @@ const RecentProjects: React.FC = () => {
           See all →
         </Button>
       </div>
-      
+
       <table className="project-table">
         <thead>
           <tr>
@@ -38,7 +83,8 @@ const RecentProjects: React.FC = () => {
               <td>{project.title}</td>
               <td>{project.department}</td>
               <td>
-                <span className={`status-dot ${project.color}`}></span> {project.status}
+                <span className={`status-dot ${project.color}`}></span>{" "}
+                {project.status}
               </td>
             </tr>
           ))}

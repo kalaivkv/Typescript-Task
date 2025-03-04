@@ -1,10 +1,8 @@
-/* App Layout */
 .app-container {
   display: flex;
   height: 100vh;
 }
 
-/* Sidebar Styles */
 .sidebar {
   width: 350px;
   height: 100vh;
@@ -35,7 +33,6 @@
   border-radius: 10px;
 }
 
-/* Close Button (Hidden on Large Screens) */
 .close-btn {
   display: none;
   position: absolute;
@@ -44,16 +41,14 @@
   color: white;
 }
 
-/* Main Content (Adjusts Based on Sidebar) */
 .main-content {
   flex-grow: 1;
-  margin-left: 350px; 
+  margin-left: 350px;
   display: flex;
   flex-direction: column;
   transition: margin-left 0.3s ease-in-out;
 }
 
-/* When Sidebar is Closed */
 .sidebar-closed {
   left: -350px;
 }
@@ -62,7 +57,6 @@
   margin-left: 0;
 }
 
-/* Responsive Styles for Mobile */
 @media (max-width: 768px) {
   .sidebar {
     left: -350px;
@@ -73,7 +67,7 @@
   }
 
   .close-btn {
-    display: block; /* Visible only in Mobile */
+    display: block;
   }
 
   .main-content {
@@ -81,27 +75,26 @@
   }
 }
 
+.navbar {
+  background-color: #ffffff;
+  color: black;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
+}
 
-  .navbar {
-    background-color: #ffffff;
-    color: black;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 15px 0px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    top: 0; 
-    width: 100%;
-    height: 60px;
-    transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
-  }
-  
-  .sidebar-closed .navbar {
-    left: 0;
-    width: 100%;
-  }
-  
+.sidebar-closed .navbar {
+  left: 0;
+  width: 100%;
+}
+
 .search-container {
   display: flex;
   align-items: center;
@@ -121,68 +114,62 @@
   margin-left: 8px;
 }
 
-  .content {
-    margin-top: 80px; 
-    padding: 20px;
-    
+.content {
+  margin-top: 80px;
+  padding: 20px;
+}
+
+.menu-icon {
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ff416c;
+}
+
+.profile-text {
+  margin-left: 10px;
+}
+
+.profile-role {
+  font-size: 12px;
+  color: gray;
+}
+
+@media (max-width: 768px) {
+  .close-btn {
+    display: block;
+    margin-bottom: 15px;
   }
-  
-  .menu-icon {
-    cursor: pointer;
-    font-size: 30px;
+
+  .navbar {
+    left: 0;
+    width: 100%;
   }
-  
-  .profile-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .profile-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #ff416c;
-  }
-  
-  .profile-text {
-    margin-left: 10px;
-  }
-  
-  .profile-role {
-    font-size: 12px;
-    color: gray;
-  }
-  
-  @media (max-width: 768px) {
-   
-    
-  
-    .close-btn {
-      display: block;
-      margin-bottom: 15px;
-    }
-  
-    .navbar {
-      left: 0;
-      width: 100%;
-    }
-  
-   
-  }
-  
+}
+
 .projects-customers-container {
-    display: flex;
-    flex-direction: column; 
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 @media (min-width: 1024px) {
-    .projects-customers-container {
-        flex-direction: row;
-    }
+  .projects-customers-container {
+    flex-direction: row;
+  }
 
-    .projects-customers-container > * {
-        flex: 1; 
-    }
+  .projects-customers-container > * {
+    flex: 1;
+  }
 }

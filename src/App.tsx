@@ -7,7 +7,7 @@ import NewCustomer from "./NewCustomer";
 import StatsCards from "./StatsCards";
 
 const App: React.FC = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true); 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -23,7 +23,7 @@ const App: React.FC = () => {
       >
         <Navbar toggleSidebar={toggleSidebar} />
         <div className="content">
-           <StatsCards />
+          <StatsCards />
 
           <div className="projects-customers-container">
             <RecentProjects />
