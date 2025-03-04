@@ -1,0 +1,77 @@
+.new-customer-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .title {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .see-all-button{
+    background: linear-gradient(to bottom right, #ff416c, #ff4b2b) !important;
+    color: white !important;
+    font-size: 14px !important;
+    border-radius: 20px !important;
+    text-transform: none !important;
+  }
+  
+  .customer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .customer-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+  
+  .customer-item:hover {
+    background: #f9f9f9;
+  }
+  
+  .avatar {
+    width: 45px !important;
+    height: 45px !important;
+  }
+  
+  .customer-info {
+    flex-grow: 1;
+    margin-left: 10px;
+  }
+  
+  .customer-name {
+    font-weight: 600;
+    font-size: 16px;
+  }
+  
+  .customer-role {
+    font-size: 12px;
+    color: gray;
+  }
+  
+  .customer-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .icon {
+    font-size: 18px;
+    color: #ff4b2b;
+    cursor: pointer;
+  }
+  
