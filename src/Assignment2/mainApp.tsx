@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Sidebar from "./Assignment2/Sidebar";
-import Navbar from "./Assignment2/Navbar";
+import Sidebar from "./Sidebar";
+import Navbar from "./Navbar";
 import "./styles.css";
-import RecentProjects from "./Assignment2/RecentProjects";
-import NewCustomer from "./Assignment2/NewCustomer";
-import StatsCards from "./Assignment2/StatsCards";
+import RecentProjects from "./RecentProjects";
+import NewCustomer from "./NewCustomer";
+import StatsCards from "./StatsCards";
 
 const App: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
