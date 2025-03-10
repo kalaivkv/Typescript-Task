@@ -1,5 +1,18 @@
 import { useState } from "react";
-import { TextField, MenuItem, Button, Container, Typography, Box, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
+import {
+  TextField,
+  MenuItem,
+  Button,
+  Container,
+  Typography,
+  Box,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@mui/material";
+import { SelectChangeEvent } from "@mui/material";
 
 interface FormData {
   name: string;
@@ -20,7 +33,7 @@ const FormComponent: React.FC = () => {
   const [errors, setErrors] = useState<Partial<FormData>>({});
   const [open, setOpen] = useState(false);
 
-  const states = [ "Kashmir", "Delhi" , "Maharashtra", "TamilNadu"];
+  const states = ["Kashmir", "Delhi", "Maharashtra", "TamilNadu"];
   const genders = ["Male", "Female", "Other"];
 
   const validate = (): boolean => {
@@ -31,7 +44,7 @@ const FormComponent: React.FC = () => {
     } else if (!/^[A-Za-z ]+$/.test(formData.name)) {
       newErrors.name = "Name must contain only alphabets";
     }
-    
+
     if (!formData.email) {
       newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
@@ -45,9 +58,24 @@ const FormComponent: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleChange = (e: React.ChangeEvent<{ name?: string; value: unknown }>) => {
-    setFormData({ ...formData, [e.target.name as string]: e.target.value });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent
+  ) => {
+    const { name, value } = e.target;
+  
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: "",
+    }));
   };
+  
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,7 +92,9 @@ const FormComponent: React.FC = () => {
 
   return (
     <Container maxWidth="sm">
-      <Box sx={{ p: 4, mt: 5, bgcolor: "white", borderRadius: 2, boxShadow: 3 }}>
+      <Box
+        sx={{ p: 4, mt: 5, bgcolor: "white", borderRadius: 2, boxShadow: 3 }}
+      >
         <Typography variant="h5" align="center" gutterBottom>
           User Form
         </Typography>
@@ -156,10 +186,14 @@ const FormComponent: React.FC = () => {
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Form Submitted</DialogTitle>
         <DialogContent>
-          <DialogContentText>Your form has been submitted successfully!</DialogContentText>
+          <DialogContentText>
+            Your form has been submitted successfully!
+          </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">OK</Button>
+          <Button onClick={handleClose} color="primary">
+            OK
+          </Button>
         </DialogActions>
       </Dialog>
     </Container>
