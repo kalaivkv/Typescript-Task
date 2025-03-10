@@ -18,9 +18,14 @@ import * as Yup from "yup";
 const Step3 = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { name, email, gender, dob, state } = useSelector(
-    (state: RootState) => state.form
-  );
+
+  const {
+    name,
+    email,
+    gender,
+    dob,
+    state: selectedState,
+  } = useSelector((state: RootState) => state.form);
 
   const [states, setStates] = useState<string[]>([]);
 
@@ -38,7 +43,7 @@ const Step3 = () => {
   }, []);
 
   const formik = useFormik({
-    initialValues: { state: "", file: null },
+    initialValues: { state: selectedState || "", file: null },
     validationSchema: Yup.object({
       state: Yup.string().required("State is required"),
     }),
@@ -51,6 +56,7 @@ const Step3 = () => {
       console.log("Gender:", gender);
       console.log("Date of Birth:", dob);
       console.log("State:", values.state);
+      console.log("Uploaded File:", values.file);
 
       dispatch(resetForm());
       navigate("/step1");
@@ -69,8 +75,14 @@ const Step3 = () => {
     >
       <Container maxWidth="sm">
         <Paper
-          elevation={6}
-          sx={{ p: 5, borderRadius: 3, textAlign: "center" }}
+          elevation={10}
+          sx={{
+            p: 5,
+            borderRadius: 3,
+            textAlign: "center",
+            bgcolor: "#ffffff", 
+            boxShadow: "0px 4px 20px rgba(0,0,0,0.2)",
+          }}
         >
           <Typography
             variant="h4"
@@ -103,10 +115,11 @@ const Step3 = () => {
               fullWidth
               type="file"
               name="file"
+              inputProps={{ accept: ".pdf,.jpg,.png" }}
               onChange={(event) =>
                 formik.setFieldValue(
                   "file",
-                  (event.currentTarget as HTMLInputElement).files?.[0]
+                  (event.currentTarget as HTMLInputElement).files?.[0] || null
                 )
               }
               margin="normal"
@@ -121,7 +134,12 @@ const Step3 = () => {
               >
                 Back
               </Button>
-              <Button type="submit" variant="contained" sx={{ px: 4 }}>
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                sx={{ px: 4 }}
+              >
                 Submit
               </Button>
             </Box>
